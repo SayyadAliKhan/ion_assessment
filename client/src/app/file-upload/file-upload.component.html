@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="input-wrap">
+      <!-- <input id="real-input" type="file" name="file" accept=".json" (change)="onFileChange($event.target.files)" #fileInput  class="real-input" />
+            <button type="button" class="btn btn-success btn-s" (click)="uploadFileToActivity()"
+                [disabled]="error || fileToUpload === null">
+                Upload an file
+            </button> -->
+      <div class="upload-btn-wrapper">
+        <input type="file" name="file" accept=".json" (change)="onFileChange($event.target.files)" #fileInput />
+        <button class="btn" (click)="uploadFileToActivity()" [disabled]="error || fileToUpload === null">Upload a
+          file</button>
+      </div>
+      <div *ngIf="error && !fileUploaded">
+        <span style='color: red'>{{message}}</span>
+      </div>
+      <div *ngIf="fileUploaded">
+        <span>{{message}}</span>
+      </div>
+      <div *ngIf="uploadProgress != 100 && uploadProgress != 0">
+        <div style="text-align: center;">
+          <div class="realtime">
+            <span [style.width.%]="uploadProgress"></span>
+          </div>
+          <div class="progress-text">
+            Upload Progress: {{uploadProgress}}%
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

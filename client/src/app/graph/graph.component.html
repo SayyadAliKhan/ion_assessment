@@ -1,0 +1,10 @@
+<span *ngIf="noData" style="text-align: center"> No Data Available </span>
+<div #graph style="width:100%; height: 600px; position: fixed; bottom: 0; left: 0;">
+</div>
+
+<div *ngIf="loadingSpinner">
+  <ng4-loading-spinner [timeout]="400000" [loadingText]="'Please wait...collecting data'"></ng4-loading-spinner>
+</div>
+<div *ngIf="errorSpinner">
+  <ng4-loading-spinner [timeout]="400000" [loadingText]="'Something Went Wrong'"></ng4-loading-spinner>
+</div>

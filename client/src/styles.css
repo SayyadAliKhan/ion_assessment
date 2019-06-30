@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.btn-success {
+    float: right !important;
+}
+
+.container {
+    padding: 25px !important;
+}
+
+.loading-text {
+    padding-top: 30% !important;
+}
