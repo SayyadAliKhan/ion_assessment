@@ -48,11 +48,13 @@ export class FileUploadComponent implements OnInit {
             }, 2000);
           } else if (event.type === HttpEventType.UploadProgress) {
                 this.uploadProgress = Math.round(100 * event.loaded / event.total);
-            }
+          }
         }, error => {
+        if (!this.fileUploaded) {
           this.error = true;
           this.message = 'Something went wrong';
           this.timeoutError();
+        }
         });
     }
 

@@ -9,6 +9,7 @@ const express = require('express'),
 var arrayOfRecords = [];
 var stream;
 var recordsCollection = mongoose.connection.collection('records');
+recordsCollection.createIndex({ts : 1}, {sparse: true});
 
 router.post("/upload", (req, res) => {
   var DIR = '../uploads/';
