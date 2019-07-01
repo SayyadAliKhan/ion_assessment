@@ -11,6 +11,7 @@ var stream;
 var recordsCollection = mongoose.connection.collection('records');
 recordsCollection.createIndex({ts : 1}, {sparse: true});
 
+//This route uploads the file, stores it in the upload folder and start processing it
 router.post("/upload", (req, res) => {
   var DIR = '../uploads/';
   var upload = multer({dest: DIR}).single('file');

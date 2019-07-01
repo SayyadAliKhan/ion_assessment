@@ -6,21 +6,22 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HelperService {
+  fileUploadUrl = 'http://localhost:3000/file/upload';
+  fetchGraphData = 'http://localhost:3000/graph';
+
   constructor(public httpClient: HttpClient) { }
 
   postFile(fileToUpload: File) {
-    const endpoint = 'http://localhost:3000/file/upload';
     const formData: FormData = new FormData();
     formData.append('file', fileToUpload);
     return this.httpClient
-      .post(endpoint, formData, {
+      .post(this.fileUploadUrl, formData, {
         reportProgress: true,
         observe: 'events'
       });
   }
 
   getGraphData() {
-    const endpoint = 'http://localhost:3000/graph';
-    return this.httpClient.get(endpoint);
+    return this.httpClient.get(this.fetchGraphData);
   }
 }

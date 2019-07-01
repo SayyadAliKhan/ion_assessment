@@ -26,6 +26,10 @@ export class FileUploadComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Whenever user chooses a file, this method handles the request and save it to fileToUpload
+   * @param files 
+   */
   onFileChange(files: FileList) {
     this.error = false;
     this.uploadProgress = 0;
@@ -34,6 +38,9 @@ export class FileUploadComponent implements OnInit {
     }
   }
 
+  /***
+   * This method handles the submit request and start uploading the file
+   */
   uploadFileToActivity() {
     this.error = false;
     this.uploadProgress = 0;
@@ -58,6 +65,9 @@ export class FileUploadComponent implements OnInit {
         });
     }
 
+    /**
+     * Validation for file
+     */
     fileValidation(files) {
       if (files.length === 0) {
         this.error = true;
@@ -83,6 +93,9 @@ export class FileUploadComponent implements OnInit {
       return true;
     }
 
+  /**
+   * Remove the error message after 2 seconds, which allow user to uplaod a new file
+   */
   timeoutError() {
       setTimeout(() => {
         this.error = false;

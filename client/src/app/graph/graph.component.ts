@@ -23,6 +23,7 @@ export class GraphComponent implements OnInit {
   errorSpinner = false;
   noData = false;
   @ViewChild('graph') graph: ElementRef;
+
   ngOnInit() {
     this.spinner.show();
     this.loadingSpinner = true;
@@ -44,6 +45,9 @@ export class GraphComponent implements OnInit {
     });
   }
 
+  /**
+   * Renders the amchart graph
+   */
   renderGraph() {
     this.spinner.hide();
     this.loadingSpinner = false;

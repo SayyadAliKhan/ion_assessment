@@ -5,6 +5,7 @@ const express = require('express'),
 var recordsCollection = mongoose.connection.collection('records');
 recordsCollection.createIndex({"ts" : 1, "val" : 1});
 
+//This route is used to get the average temperature record year wise sorted
 router.get('/', (req, res) => {
 
   var project1 = { "year" : { "$year" : "$ts"}, "val" : "$val"};
